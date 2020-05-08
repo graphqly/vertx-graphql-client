@@ -1,6 +1,6 @@
 package io.github.graphqly.client.impl;
 
-import io.github.graphqly.client.GraphqlyClient;
+import io.github.graphqly.client.GraphqlClient;
 import io.github.graphqly.reflector.GraphQLReflector;
 import io.vertx.core.Future;
 import io.vertx.core.MultiMap;
@@ -19,7 +19,7 @@ import lombok.Setter;
 import java.util.Map;
 
 @Builder
-public class VertxGraphqlyClient extends GraphqlyClient {
+public class VertxGraphqlClient extends GraphqlClient {
 
   @Setter @Getter @Default public boolean useSSL = false;
   @Setter @Getter @Default public boolean keepAlive = true;

@@ -1,12 +1,12 @@
 package io.github.graphqly.client;
 
-import io.github.graphqly.client.impl.VertxGraphqlyClient;
+import io.github.graphqly.client.impl.VertxGraphqlClient;
 import io.vertx.core.Future;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class GraphqlyClient {
+public abstract class GraphqlClient {
 
   /**
    * Invoke an operation
@@ -60,7 +60,7 @@ public abstract class GraphqlyClient {
    *
    * @return Our current implementation
    */
-  public static VertxGraphqlyClient.VertxGraphqlyClientBuilder newBuilder() {
-    return VertxGraphqlyClient.builder();
+  public static VertxGraphqlClient.VertxGraphqlClientBuilder newBuilder() {
+    return VertxGraphqlClient.builder();
   }
 }
