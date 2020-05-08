@@ -7,6 +7,49 @@
     <groupId>io.github.graphqly</groupId>
     <artifactId>vertx-graphql-client</artifactId>
     <version>0.1.0</version>
+
+    <properties>
+        <vertx.version>3.8.4</vertx.version>
+        <graphql.reflector.version>0.1.0</graphql.reflector.version>
+        <lombok.version>1.18.10</lombok.version>
+    </properties>
+
+    <name>Vert.X GraphQL Client</name>
+    <description>An elegant implementation for code-first GraphQL clients</description>
+    <url>https://github.com/graphqly/vertx-graphql-client</url>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Andy Le</name>
+            <email>anhldbk@gmail.com</email>
+            <organization>BigSonata</organization>
+            <organizationUrl>https://bigsonata.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/graphqly/vertx-graphql-client.git</connection>
+        <developerConnection>scm:git:ssh://github.com:graphqly/vertx-graphql-client.git</developerConnection>
+        <url>https://github.com/graphqly/vertx-graphql-client/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -17,17 +60,54 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <sourcepath>src/main/java</sourcepath>
+                    <additionalJOption>-Xdoclint:none</additionalJOption>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-    <properties>
-        <vertx.version>3.8.4</vertx.version>
-        <graphql.reflector.version>0.1.0-SNAPSHOT</graphql.reflector.version>
-        <lombok.version>1.18.10</lombok.version>
-    </properties>
 
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -41,14 +121,12 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.vertx/vertx-web-client -->
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web-client</artifactId>
             <version>${vertx.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
