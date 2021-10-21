@@ -14,7 +14,7 @@ Please add `vertx-graphql-client` to your Maven projects
 <dependency>
     <groupId>io.github.graphqly</groupId>
     <artifactId>vertx-graphql-client</artifactId>
-    <version>0.1.0</version
+    <version>0.1.0</version>
 </dependency>
 ```
 
@@ -58,7 +58,7 @@ You may see the similarities between our Java class and the GraphQL definition a
 The code:
 
 ```java
-GraphqlClient client = GraphqlClient.builder()
+GraphqlClient client = GraphqlClient.newBuilder()
         // Optionally set the endpoint
         // Default: http://localhost:4000/graphql 
         .endpoint("http://localhost:4000/graphql")
