@@ -9,7 +9,7 @@
     <version>0.1.0</version>
 
     <properties>
-        <vertx.version>3.8.4</vertx.version>
+        <vertx.version>4.5.24</vertx.version>
         <graphql.reflector.version>0.1.0</graphql.reflector.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
